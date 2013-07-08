@@ -1,6 +1,6 @@
 <?php
 
-class DownloadsController extends BaseController {
+class DownloadController extends BaseController {
 
     /**
      * Display a listing of the resource.
@@ -9,7 +9,7 @@ class DownloadsController extends BaseController {
      */
     public function index()
     {
-        //
+        // return View::make('downloads.index');
     }
 
     /**

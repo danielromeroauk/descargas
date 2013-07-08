@@ -12,16 +12,24 @@
 */
 
 //login user and admin account
-Route::get('/', 'UsersController@index');
-Route::post('/', 'UsersController@do_login');
+Route::get('/', 'UserController@index');
+Route::post('/', 'UserController@do_login');
+
 //login user and admin account
-Route::get('login', 'UsersController@login');
-Route::post('login', 'UsersController@do_login');
+Route::get('login', 'UserController@login');
+Route::post('login', 'UserController@do_login');
+
 //editing user account
-Route::get('/edit/{username}', 'UsersController@edit_profile');
-Route::post('/edit/{username}', 'UsersController@do_edit_profile');
+Route::get('/edit/{username}', 'UserController@edit_profile');
+Route::post('/edit/{username}', 'UserController@do_edit_profile');
+
 //adding downloads to user account
-Route::get('/add/{username}', 'UsersController@add_download');
-Route::post('/add/{username}', 'UsersController@do_add_download');
+Route::get('/add/{username}', 'UserController@add_download');
+Route::post('/add/{username}', 'UserController@do_add_download');
+
 //user download route
-Route::get('/file/{file}/{hash}', 'UsersController@do_download');
+Route::get('/file/{file}/{hash}', 'UserController@do_download');
+
+Route::get('logout','UserController@logout');
+
+// Route::get('downloads', 'DownloadController@index');

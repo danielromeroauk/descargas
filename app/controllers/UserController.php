@@ -1,17 +1,22 @@
 <?php
 
-class UsersController extends BaseController {
+class UserController extends BaseController {
 
     public function index()
     {
-        if (Auth::user() && Auth::user()->role == 'customer') {
+        if (Auth::user() && Auth::user()->role == 'customer')
+        {
             $downloads = Download::all();
-            
+
             return View::make('downloads.index')->with('downloads', $downloads);
-        }elseif (Auth::user() && Auth::user()->role == 'administrator') {
+
+        } elseif (Auth::user() && Auth::user()->role == 'administrator')
+        {
             $users = User::all();
+
             return View::make('users.index')->with('users', $users);
         }
+
         return View::make('login');
     }
 
@@ -93,6 +98,11 @@ class UsersController extends BaseController {
     return Redirect::to('/');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+
+        return Redirect::to('');
+    }
+
 }
-
-
